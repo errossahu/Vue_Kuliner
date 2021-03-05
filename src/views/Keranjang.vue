@@ -1,7 +1,8 @@
 <template>
 <div>
     <Navbar></Navbar>
-    <h2>Daftar Makanan</h2></div>
+    <h2>List Keranjang</h2>
+    </div>
   
 </template>
 
@@ -10,7 +11,7 @@
 import Navbar from '@/components/Navbar.vue'
 
 export default {
-  name: 'Foods',
+  name: 'Keranjang',
   components: {
     Navbar
   }
