@@ -1,22 +1,20 @@
 <template>
-<div>
+  <div class="keranjang">
     <Navbar></Navbar>
     <h2>List Keranjang</h2>
-    </div>
-  
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Navbar from '@/components/Navbar.vue'
+import Navbar from "@/components/Navbar.vue";
 
 export default {
-  name: 'Keranjang',
+  name: "Keranjang",
   components: {
-    Navbar
-  }
-}
+    Navbar,
+  },
+};
 </script>
 <style>
-
 </style>
