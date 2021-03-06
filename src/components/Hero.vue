@@ -1,28 +1,52 @@
 <template>
-  <div class="row mt-4">
-      <div class="col">
-         <div class="d-flex 1-100">
-             <div class="justify-content-center align-self-center">
-                              <h2><strong>Food For Everyone</strong><br>Yummy...!</h2>
-                              <p>Ayo Segera Pilih Makanan Favoritmu</p>
-                              <button class="btn btn-lg btn-success"><b-icon-arrow-right></b-icon-arrow-right>Pesan</button>
-             </div>
-
-         </div>
+  <div class="hero">
+    <!-- DESKTOP -->
+    <div class="d-none d-md-block">
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="d-flex 1-100">
+            <div class="justify-content-center align-self-center">
+              <h2><strong>Food For Everyone</strong><br />Yummy...!</h2>
+              <p>Ayo Segera Pilih Makanan Favoritmu</p>
+              <button class="btn btn-lg btn-success">
+                <b-icon-arrow-right></b-icon-arrow-right>Pesan
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="../assets/Untitled.png" width="100%" />
+        </div>
       </div>
-      <div class="col">
+    </div>
 
-          <img src="../assets/Untitled.png" width="100%">
+    <!-- Mobile -->
+    <div class="d-sm-block d-md-none">
+      <div class="row mt-4">
+        <div class="col-md-6 mb-3">
+          <img src="../assets/Untitled.png" width="100%" />
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex 1-100">
+            <div class="justify-content-center align-self-center">
+              <h2><strong>Food For Everyone</strong><br />Yummy...!</h2>
+              <p>Ayo Segera Pilih Makanan Favoritmu</p>
+              <button class="btn btn-lg btn-success">
+                <b-icon-arrow-right></b-icon-arrow-right>Pesan
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-    name:'Hero'
-}
+  name: "Hero",
+};
 </script>
 
 <style>
-
 </style>
