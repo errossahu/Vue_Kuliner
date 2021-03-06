@@ -28,7 +28,7 @@
               <router-link class="nav-link" to="/keranjang"
                 >Keranjang
                 <b-icon-bag></b-icon-bag>
-                <span class="badge badge-success ml-2">0</span>
+                <span class="badge badge-success ml-2">{{jumlah_pesanan}}</span>
               </router-link>
             </li>
           </ul>
@@ -43,5 +43,28 @@ import axios from "axios";
 
 export default {
   name: "Navbar",
+  data(){
+    return{
+      jumlah_pesanan:[] ,
+    } ; 
+  },
+  methods:{
+    setJumlahPesanan(data)
+    {
+      if(data)
+      this.jumlah_pesanan=data;
+      else{
+        this.jumlah_pesanan='';
+      }
+    }
+  },
+  mounted(){
+    axios
+    .get("http://localhost/back_endServer/api/totalPesanan")
+    .then((response)=>this.setJumlahPesanan(response.data))
+    .catch((error) => {
+          console.log(error);
+        });
+  }
 };
 </script>
