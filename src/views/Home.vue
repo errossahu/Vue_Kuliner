@@ -15,9 +15,12 @@
         </div>
       </div>
 
-      <div class="row mb-3">
-        <div class="col md-4 mt-4" v-for="product in products" :key="product.id">
-       
+      <div class="row mb-4">
+        <div
+          class="col md-4 mt-4"
+          v-for="product in products"
+          :key="product.id"
+        >
           <CardProduct :product="product"></CardProduct>
         </div>
       </div>
@@ -51,10 +54,9 @@ export default {
   mounted() {
     // Make a request for a user with a given ID
     axios
-      .get("http://localhost/back_endServer/api")
-      .then((response)  =>  this.setProduct(response.data))
-      .catch((error) => console.log("gagal",error))
-      
+      .get("http://localhost/back_endServer/api/limit")
+      .then((response) => this.setProduct(response.data))
+      .catch((error) => console.log("gagal", error));
   },
 };
 </script>
