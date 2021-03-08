@@ -6,25 +6,41 @@
       <div class="row">
 
         <div class="col mt-5">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">No</th>
-                <th scope="col">Menu</th>
-                <th scope="col">Keterangan</th>
-                <th scope="col">Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(keranjang,index) in kerajangs" :key="keranjang.id_pesan">
-                <td scope="row">{{index+1}}</td>
-                <td>{{keranjang.nama_menu}}</td>
-                <td>{{keranjang.jumlah_pesan}}</td>
-                <td>{{keranjang.keterangan}}</td>
-              </tr>
+              <v-simple-table>
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th>
+            No
+          </th>
+          <th>Gambar</th>
+          <th class="text-left">
+            Nama Menu
+          </th>
+          <th class="text-left">
+            Jumlah Pesanan
+          </th>
+          <th>Keterangan</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(list,no) in kerajangs" :key="list.id_pesan"
+        >
+          <td>{{no+1}}</td>
+          <td><img class="img-fluid img-thumbnail rounded float-left rounded mx-auto d-block"   :src="'../assets/images/' + list.gambar"
+            alt="" srcset=""></td>
+          <td>{{ list.nama_menu }}</td>
+          <td>{{list.jumlah_pesan }}</td>
+          <td>{{list.keterangan ? list.keterangan:"-"}}</td>
+        </tr>
+      </tbody>
+    </template>
+  </v-simple-table>
 
-            </tbody>
-          </table>
+
+
+
         </div>
       </div>
     </div>
@@ -40,10 +56,12 @@ export default {
   name: "Keranjang",
   components: {
     Navbar,
+ 
   },
   data(){
       return{
         kerajangs:[],
+
 
       }
   },
@@ -51,14 +69,18 @@ export default {
     setKeranjang(data)
     {
       this.kerajangs=data ;
-    }
+    },
+    
   },
   mounted(){
     axios
     .get("http://localhost/back_endServer/api/listPesanan")
     .then((response)=>this.setKeranjang(response.data))
     .catch((error)=>console.log(error))
-  }
+
+ 
+  },
+
 
 };
 </script>

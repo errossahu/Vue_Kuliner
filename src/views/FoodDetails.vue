@@ -90,7 +90,7 @@ export default {
           this.$toast.success("Sukses Masuk Ke Keranjang", {
    
             type :'success',
-            position:'top-right',
+            position:'bottom',
             duration :3000,
             dismissible:true,
           });

@@ -13,6 +13,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/main.css'
 import 'vuetify/dist/vuetify.min.css'
+import Axios from 'axios';
+Vue.prototype.$http = Axios;
+Vue.prototype.$apiUrl = 'http://kouveepetshopapi.smithdev.xyz/index.php/';
 
 
 Vue.use(Vuetify)
