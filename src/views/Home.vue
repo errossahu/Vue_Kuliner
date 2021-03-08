@@ -33,7 +33,7 @@
 import CardProduct from "@/components/CardProduct.vue";
 import Navbar from "@/components/Navbar.vue";
 import Hero from "@/components/Hero.vue";
-import axios from "axios";
+// import axios from "axios";
 export default {
   name: "Home",
   components: {
@@ -52,11 +52,10 @@ export default {
     },
   },
   mounted() {
-    // Make a request for a user with a given ID
-    axios
-      .get("http://localhost/back_endServer/api/limit")
-      .then((response) => this.setProduct(response.data))
-      .catch((error) => console.log("gagal", error));
+    const uri =  this.$apiUrl ; 
+    this.$http.get(uri).then((response)=>this.setProduct(response.data))
+    .catch((error)=>console.log("gaga",error));
+
   },
 };
 </script>

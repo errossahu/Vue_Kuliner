@@ -118,16 +118,12 @@ export default {
     },
   },
   mounted() {
-    axios
-      .get(
-        "http://localhost/back_endServer/api/?id_menu= " +
-          this.$route.params.id_menu
-      )
-      .then((response) => this.setProoduck(response.data))
-      .catch((error) => console.log(error));
+    const uri = this.$apiUrl+'/?id_menu='+this.$route.params.id_menu
+    this.$http.get(uri).then((response)=>this.setProoduck(response.data)).catch((error)=>console.log(error));
+    
   },
 };
-</script>
 
+</script>
 <style>
 </style>

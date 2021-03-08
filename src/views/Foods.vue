@@ -41,7 +41,6 @@
 // @ is an alias to /src
 import Navbar from "@/components/Navbar.vue";
 import CardProduct from "@/components/CardProduct.vue";
-import axios from "axios";
 
 export default {
   name: "Foods",
@@ -63,11 +62,10 @@ export default {
     seacrhFood()
     {
       var param = this.seacrh ;
+      const uri = this.apiUrl+'/seacrh'+'/?nama_menu='+param 
+      this.$http.get(uri).then((response)=>this.setProduct(response.data))
+      .catch((error)=>console.log("gagal",error))
 
-      axios
-      .get("http://localhost/back_endServer/api/search/?nama_menu="+param)
-      .then((response) => this.setProduct(response.data))
-      .catch((error) => console.log("gagal", error));
       
     }
     
@@ -75,10 +73,10 @@ export default {
   
   
   mounted() {
-    axios
-      .get("http://localhost/back_endServer/api")
-      .then((response) => this.setProduct(response.data))
-      .catch((error) => console.log("gagal", error));
+    const uri =  this.$apiUrl ; 
+    this.$http.get(uri).then((response)=>this.setProduct(response.data))
+    .catch((error)=>console.log("gaga",error))
+
   },
   // computed:{
   //   filterBlogs: function()
