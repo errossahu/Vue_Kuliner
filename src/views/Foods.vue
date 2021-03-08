@@ -65,6 +65,21 @@ export default {
       const uri = this.apiUrl+'/seacrh'+'/?nama_menu='+param 
       this.$http.get(uri).then((response)=>this.setProduct(response.data))
       .catch((error)=>console.log("gagal",error))
+      .then(() => {
+          this.$router.push({path: "/keranjang"})
+          this.$toast.success("Sukses Masuk Ke Keranjang", {
+   
+            type :'success',
+            position:'bottom',
+            duration :3000,
+            dismissible:true,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+
 
       
     }

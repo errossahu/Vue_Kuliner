@@ -49,7 +49,7 @@
 
 <script>
 // @ is an alias to /src
-import axios from "axios";
+
 import Navbar from "@/components/Navbar.vue";
 
 export default {
@@ -73,9 +73,8 @@ export default {
     
   },
   mounted(){
-    axios
-    .get("http://localhost/back_endServer/api/listPesanan")
-    .then((response)=>this.setKeranjang(response.data))
+    const uri = this.$apiUrl+'/listPesanan';
+    this.$http.get(uri).then((response)=>this.setKeranjang(response.data))
     .catch((error)=>console.log(error))
 
  

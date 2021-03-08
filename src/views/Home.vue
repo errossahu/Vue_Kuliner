@@ -50,11 +50,23 @@ export default {
     setProduct(data) {
       this.products = data;
     },
+    setError(resspon)
+    {
+      if(resspon==this.error)
+        console.log('error');
+        this.$toast.warning("Server Bermasalah", {
+          
+        type :'error',
+            position:'top',
+            duration :3000,
+            dismissible:true,
+          });
+    },
   },
   mounted() {
-    const uri =  this.$apiUrl ; 
+    const uri =  this.$apiUrl+'/er' ; 
     this.$http.get(uri).then((response)=>this.setProduct(response.data))
-    .catch((error)=>console.log("gaga",error));
+    .catch((error)=>this.setError(error));
 
   },
 };

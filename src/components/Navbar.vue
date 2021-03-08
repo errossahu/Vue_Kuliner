@@ -22,6 +22,9 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/foods"> Foods</router-link>
             </li>
+              <li class="nav-item">
+              <router-link class="nav-link" to="/login"> Login</router-link>
+            </li>
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -39,7 +42,6 @@
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
   name: "Navbar",
@@ -59,12 +61,12 @@ export default {
     }
   },
   mounted(){
-    axios
-    .get("http://localhost/back_endServer/api/totalPesanan")
-    .then((response)=>this.setJumlahPesanan(response.data))
+    const uri = this.$apiUrl+'/totalPesanan' ; 
+    this.$http.get(uri).then((response)=>this.setJumlahPesanan(response.data))
     .catch((error) => {
           console.log(error);
         });
+ 
   }
 };
 </script>

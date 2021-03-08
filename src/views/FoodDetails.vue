@@ -56,7 +56,7 @@
 
 <script>
 import Navbar from "@/components/Navbar.vue";
-import axios from "axios";
+
 
 export default {
   name: "FoodDetails",
@@ -77,14 +77,12 @@ export default {
       const id_menu = this.pesan.id_menu;
      const jumlah_pesan = this.pesan.jumlah_pesan;
       const keterangan = this.pesan.keterangan;
+      
       if(jumlah_pesan)
       {
-        axios
-        .post("http://localhost/back_endServer/api/pesan", {
-          id_menu,
-          jumlah_pesan,
-          keterangan,
-        })
+        const uri = this.$apiUrl+'/pesan'+{id_menu, jumlah_pesan,keterangan}
+        this.$http
+        .post(uri)
         .then(() => {
           this.$router.push({path: "/keranjang"})
           this.$toast.success("Sukses Masuk Ke Keranjang", {
