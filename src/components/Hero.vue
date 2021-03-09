@@ -6,8 +6,8 @@
         <div class="col-md-6">
           <div class="d-flex 1-100">
             <div class="justify-content-center align-self-center">
-              <h2><strong>Food For Everyone</strong><br />Yummy...!</h2>
-              <p>Ayo Segera Pilih Makanan Favoritmu</p>
+              <h2><strong>Selamat Datang Di:</strong><br />Kab. Manggarai Barat</h2>
+              <!-- <p>Ayo Segera Pilih Makanan Favoritmu</p> -->
               <router-link to="/foods" class="btn btn-lg btn-success">
                 <b-icon-arrow-right></b-icon-arrow-right>Pesan
               </router-link>

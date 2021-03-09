@@ -1,7 +1,7 @@
 <template>
   <!-- <h2>Card <br>{{product.nama_menu}}</h2> -->
     <div class="card shadow card-product">
-      <v-card
+    <v-card
     class="mx-auto"
     max-width="344"
     outlined

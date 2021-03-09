@@ -22,7 +22,7 @@
                 <strong>Jumlah Pesanan</strong>
               </label>
               <input
-                    min="0"
+                min="0"
                 v-model="pesan.jumlah_pesan"
                 type="number"
                 class="form-control"
@@ -56,8 +56,6 @@
 
 <script>
 import Navbar from "@/components/Navbar.vue";
-
-
 export default {
   name: "FoodDetails",
   components: {
@@ -67,6 +65,7 @@ export default {
     return {
       product: [],
       pesan: { id_menu: this.$route.params.id_menu },
+      data  : new FormData(),
     };
   },
   methods: {
@@ -74,54 +73,49 @@ export default {
       this.product = data;
     },
     pemesanan() {
-      const id_menu = this.pesan.id_menu;
-     const jumlah_pesan = this.pesan.jumlah_pesan;
-      const keterangan = this.pesan.keterangan;
-      
-      if(jumlah_pesan)
-      {
-        const uri = this.$apiUrl+'/pesan'+{id_menu, jumlah_pesan,keterangan}
+      this.data.append('id_menu',this.pesan.id_menu);
+      this.data.append('jumlah_pesan',this.pesan.jumlah_pesan);
+      this.data.append('keterangan',this.pesan.keterangan);
+
+      // const id_menu = this.pesan.id_menu;
+      // const jumlah_pesan = this.pesan.jumlah_pesan;
+      // const keterangan = this.pesan.keterangan;
+
+      if (this.pesan.jumlah_pesan) {
+        const uri =
+          this.$apiUrl + "/pesan" ;
         this.$http
-        .post(uri)
-        .then(() => {
-          this.$router.push({path: "/keranjang"})
-          this.$toast.success("Sukses Masuk Ke Keranjang", {
-   
-            type :'success',
-            position:'bottom',
-            duration :3000,
-            dismissible:true,
+          .post(uri,this.data)
+          .then(() => {
+            this.$router.push({ path: "/keranjang" });
+            this.$toast.success("Sukses Masuk Ke Keranjang", {
+              type: "success",
+              position: "bottom",
+              duration: 3000,
+              dismissible: true,
+            });
+          })
+          .catch((error) => {
+            console.log(error);
           });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-
-
-
-
-        
-      }
-
-      else{
+      } else {
         this.$toast.warning("Jumlah Pesanan Tidak Boleh Kosong", {
-   
-            type :'error',
-            position:'top-right',
-            duration :3000,
-            dismissible:true,
-          });
+          type: "error",
+          position: "top-right",
+          duration: 3000,
+          dismissible: true,
+        });
       }
-      
     },
   },
   mounted() {
-    const uri = this.$apiUrl+'/?id_menu='+this.$route.params.id_menu
-    this.$http.get(uri).then((response)=>this.setProoduck(response.data)).catch((error)=>console.log(error));
-    
+    const uri = this.$apiUrl + "/?id_menu=" + this.$route.params.id_menu;
+    this.$http
+      .get(uri)
+      .then((response) => this.setProoduck(response.data))
+      .catch((error) => console.log(error));
   },
 };
-
 </script>
 <style>
 </style>

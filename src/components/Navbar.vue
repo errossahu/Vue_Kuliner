@@ -3,6 +3,7 @@
     <div class="container">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Kulineran</a>
+        
         <button
           class="navbar-toggler"
           type="button"
@@ -20,7 +21,7 @@
               <router-link class="nav-link" to="/">Home</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/foods"> Foods</router-link>
+              <router-link class="nav-link" to="/foods">Berita</router-link>
             </li>
               <li class="nav-item">
               <router-link class="nav-link" to="/login"> Login</router-link>
@@ -36,6 +37,7 @@
             </li>
           </ul>
         </div>
+
       </div>
     </div>
   </nav>

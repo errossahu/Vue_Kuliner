@@ -71,7 +71,7 @@ export default {
     data(){
         return{
          Login:{},   
-           user: new FormData(),
+        user: new FormData(),
         }
     },
     methods:{
