@@ -5,6 +5,7 @@ import Foods  from '../views/Foods.vue'
 import Login  from '../views/Login.vue'
 import Keranjang from '../views/Keranjang.vue'
 import FoodDetails from '../views/FoodDetails.vue'
+
 // import { component } from 'vue/types/umd's
 Vue.use(VueRouter)
 

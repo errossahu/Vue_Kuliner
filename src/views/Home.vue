@@ -33,6 +33,7 @@
 import CardProduct from "@/components/CardProduct.vue";
 import Navbar from "@/components/Navbar.vue";
 import Hero from "@/components/Hero.vue";
+
 // import axios from "axios";
 export default {
   name: "Home",
@@ -44,6 +45,7 @@ export default {
   data() {
     return {
       products: [],
+  
     };
   },
   methods: {
@@ -62,11 +64,22 @@ export default {
             dismissible:true,
           });
     },
+    getIdLocalStoroge()
+    {
+      if(localStorage.getItem('id_user')==null)
+      {
+        return alert('You Are Not Log In');
+      }
+    }
   },
-  mounted() {
-    const uri =  this.$apiUrl+'/er' ; 
+  mounted() { 
+    // console.log(this.$id_user);
+
+  this.getIdLocalStoroge()
+;    const uri =  this.$apiUrl ; 
     this.$http.get(uri).then((response)=>this.setProduct(response.data))
     .catch((error)=>this.setError(error));
+  
 
   },
 };

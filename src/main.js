@@ -16,8 +16,7 @@ import 'vuetify/dist/vuetify.min.css'
 import Axios from 'axios';
 Vue.prototype.$http = Axios;
 Vue.prototype.$apiUrl = 'https://api.bajolapak.com/api';
-
-
+Vue.prototype.$id_user = '';
 Vue.use(Vuetify)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
@@ -25,8 +24,12 @@ Vue.use(VueToast);
 
 new Vue({
   router,
+  data: {
+    id_user: '',
+  },
   vuetify : new Vuetify(),
   render: h => h(App)
+  
 }).$mount('#app')
 
 // Import Dependency 
