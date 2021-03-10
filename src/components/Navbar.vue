@@ -50,6 +50,7 @@ export default {
   data(){
     return{
       jumlah_pesanan:[] ,
+      id_user : null , 
     } ; 
   },
   methods:{
@@ -61,13 +62,24 @@ export default {
         this.jumlah_pesanan='';
       }
     }
+    
   },
   mounted(){
-    const uri = this.$apiUrl+'/totalPesanan' ; 
+    
+    this.id_user = localStorage.getItem('id_user');
+    if(this.id_user==null)
+    {
+      var nil ;
+      this.setJumlahPesanan(nil)
+    }
+    else{
+const uri = this.$apiUrl+'/totalPesanan'+'?id_user='+this.id_user; 
     this.$http.get(uri).then((response)=>this.setJumlahPesanan(response.data))
     .catch((error) => {
           console.log(error);
         });
+    }
+    
  
   }
 };

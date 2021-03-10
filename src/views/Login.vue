@@ -42,6 +42,7 @@
 </template>
 
 <script>
+// import Home from "@/views/Home.vue";
 import Navbar from "@/components/Navbar.vue";
 import "@mdi/font/css/materialdesignicons.css";
 export default {
@@ -65,7 +66,7 @@ export default {
       this.$http
         .post(uri, this.user)
         .then((response) => 
-          {this.$toast.success("Sukses Masuk Ke Keranjang", {
+          {this.$toast.success("Berhasil Login", {
             type: "success",
             position: "bottom",
             duration: 3000,
@@ -77,6 +78,7 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+       this.$router.push({name:'Home'});
     },
     setUserSession(data) {
      localStorage.setItem('id_user',data.id_users);
