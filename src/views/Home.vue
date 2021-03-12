@@ -68,7 +68,10 @@ export default {
     {
       if(localStorage.getItem('id_user')==null)
       {
-        return alert('You Are Not Log In');
+        return console.log('You Are Not Log In');
+      }
+      else{
+        return console.log('You Are Log In');
       }
     }
   },

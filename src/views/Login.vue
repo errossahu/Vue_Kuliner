@@ -82,7 +82,7 @@ export default {
     },
     setUserSession(data) {
      localStorage.setItem('id_user',data.id_users);
-    //  console.log(localStorage.getItem('id_user'));
+    
     },
   },
 };
