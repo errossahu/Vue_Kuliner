@@ -78,10 +78,11 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-       this.$router.push({name:'Home'});
+      //  this.$router.push({name:'Home'});
     },
     setUserSession(data) {
-     localStorage.setItem('id_user',data.id_users);
+     localStorage.setItem('token',data.token);
+     console.log(localStorage.getItem('token'));
     
     },
   },

@@ -16,7 +16,7 @@ import './assets/css/main.css'
 import 'vuetify/dist/vuetify.min.css'
 import Axios from 'axios';
 Vue.prototype.$http = Axios;
-Vue.prototype.$apiUrl = 'https://api.bajolapak.com/api';
+Vue.prototype.$apiUrl = 'http://localhost/back_endServer/api';
 Vue.prototype.$id_user = '';
 Vue.use(Vuetify)
 Vue.use(BootstrapVue)
